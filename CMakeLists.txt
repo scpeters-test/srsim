@@ -8,23 +8,23 @@ find_package(catkin REQUIRED)
 
 include(${catkin_EXTRAS_DIR}/toplevel.cmake)
 
-project (drcsim)
-set (DRC_SIM_MAJOR_VERSION 3)
-set (DRC_SIM_MINOR_VERSION 1)
+project (srsim)
+set (SR_SIM_MAJOR_VERSION 0)
+set (SR_SIM_MINOR_VERSION 0)
 #The patch version may have been bumped for prerelease purposes; be sure to
-# check drcsim-release/ubuntu/debian/changelog@default to determine what the
+# check srsim-release/ubuntu/debian/changelog@default to determine what the
 # next patch version should be for a regular release.
-set (DRC_SIM_PATCH_VERSION 1)
-set (DRC_SIM_VERSION ${DRC_SIM_MAJOR_VERSION}.${DRC_SIM_MINOR_VERSION})
-set (DRC_SIM_VERSION_FULL ${DRC_SIM_MAJOR_VERSION}.${DRC_SIM_MINOR_VERSION}.${DRC_SIM_PATCH_VERSION})
-message (STATUS "${PROJECT_NAME} version ${DRC_SIM_VERSION_FULL}")
+set (SR_SIM_PATCH_VERSION 1)
+set (SR_SIM_VERSION ${SR_SIM_MAJOR_VERSION}.${SR_SIM_MINOR_VERSION})
+set (SR_SIM_VERSION_FULL ${SR_SIM_MAJOR_VERSION}.${SR_SIM_MINOR_VERSION}.${SR_SIM_PATCH_VERSION})
+message (STATUS "${PROJECT_NAME} version ${SR_SIM_VERSION_FULL}")
 
 # Packaging configuration
-set (CPACK_PACKAGE_VERSION "${DRC_SIM_VERSION_FULL}")
-set (CPACK_PACKAGE_VERSION_MAJOR "${DRC_SIM_MAJOR_VERSION}")
-set (CPACK_PACKAGE_VERSION_MINOR "${DRC_SIM_MINOR_VERSION}")
-set (CPACK_PACKAGE_VERSION_PATCH "${DRC_SIM_PATCH_VERSION}")
+set (CPACK_PACKAGE_VERSION "${SR_SIM_VERSION_FULL}")
+set (CPACK_PACKAGE_VERSION_MAJOR "${SR_SIM_MAJOR_VERSION}")
+set (CPACK_PACKAGE_VERSION_MINOR "${SR_SIM_MINOR_VERSION}")
+set (CPACK_PACKAGE_VERSION_PATCH "${SR_SIM_PATCH_VERSION}")
 list (APPEND CPACK_SOURCE_GENERATOR "TBZ2")
 list (APPEND CPACK_SOURCE_IGNORE_FILES ";Ogre.log;TODO;/.hg/;.hgignore;.swp$;/build/")
-set (CPACK_SOURCE_PACKAGE_FILE_NAME "@PROJECT_NAME@-@DRC_SIM_VERSION_FULL@")
+set (CPACK_SOURCE_PACKAGE_FILE_NAME "@PROJECT_NAME@-@SR_SIM_VERSION_FULL@")
 include (CPack)
