@@ -1,0 +1,46 @@
+<!-- launch file for mpl
+  arguments:
+    use_gazebo : defaults to false; if true, run gazebo
+    right : defaults to true; if true, use right arm, else use left arm
+-->
+
+<launch>
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="verbose" default="false"/>
+  <arg name="world_name" default="$(find srsim_gazebo)/worlds/arat.world"/>
+
+  <!-- args for determining which arm to use -->
+  <arg name="right" default="true" />
+
+  <!-- param for TF gui -->
+  <param name="use_gui" value="$(arg gui)" />
+
+  <!-- get the appropriate arm -->
+  <group if="$(arg right)">
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find sr_description)/robots/arm_and_hand_motor.urdf.xacro" />
+  </group>
+  <group unless="$(arg right)">
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find sr_description)/robots/arm_and_hand_motor.urdf.xacro" />
+  </group>
+
+  <!-- start gazebo world -->
+  <include file="$(find srsim_gazebo)/launch/start_sim_world.launch">
+    <arg name="paused" default="$(arg paused)"/>
+    <arg name="use_sim_time" default="$(arg use_sim_time)"/>
+    <arg name="gui" default="$(arg gui)"/>
+    <arg name="headless" default="$(arg headless)"/>
+    <arg name="debug" default="$(arg debug)"/>
+    <arg name="verbose" default="$(arg verbose)"/>
+    <arg name="world_name" default="$(arg world_name)"/>
+  </include>
+
+  <!-- spawn model -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+  args="-urdf -model mpl -param robot_description" />
+
+</launch>
