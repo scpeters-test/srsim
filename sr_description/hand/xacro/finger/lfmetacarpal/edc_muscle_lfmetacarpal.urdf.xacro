@@ -69,6 +69,10 @@
       velocity="10.0" />
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="LFJ5">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <xacro:lfmetacarpal_transmission />
 

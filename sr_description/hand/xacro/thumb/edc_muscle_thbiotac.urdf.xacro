@@ -10,7 +10,7 @@
 <!-- C6 hand thumb with BioTAC sensor
   this is currently completely broken; we need to fix the
   collision geometries, and to calculate/measure the correct
-  position for thtip for FK/IK services.
+    position for thtip for FK/IK services.
 
   We also need to check the THJ2 rotation axis and the rpy
   orientation of the thmiddle BioTAC adapter.
@@ -69,6 +69,10 @@
       velocity="10.0" />
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="THJ2">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="thmiddle_transmission">
       <actuator name="THJ2" />
@@ -94,6 +98,10 @@
       <limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}" effort="1000.0" velocity="10.0" />
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="THJ1">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="thdistal_transmission">
       <actuator name="THJ1" />

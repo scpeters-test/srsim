@@ -58,6 +58,10 @@
       velocity="10.0" />
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="${joint_prefix}J2">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <link name="${link_prefix}_J1_dummy">
       <inertial>
@@ -75,6 +79,10 @@
       <limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}" effort="1000.0" velocity="10.0" />
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="${joint_prefix}J1">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <xacro:middle_transmission />
 

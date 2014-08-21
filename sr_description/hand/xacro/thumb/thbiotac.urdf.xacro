@@ -69,6 +69,10 @@
       velocity="10.0" />
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="THJ2">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <transmission type="sr_mechanism_model/SimpleTransmission" name="thmiddle_transmission">
       <actuator name="THJ2" />
@@ -94,6 +98,10 @@
       <limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}" effort="1000.0" velocity="10.0" />
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="THJ1">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <transmission type="sr_mechanism_model/SimpleTransmission" name="thdistal_transmission">
       <actuator name="THJ1" />

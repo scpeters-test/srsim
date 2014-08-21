@@ -59,6 +59,10 @@
       velocity="10.0" />
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="${joint_prefix}J1">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
 <!--
     <xacro:distal_transmission />

@@ -41,6 +41,6 @@
 
   <!-- spawn model -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
-  args="-urdf -model mpl -param robot_description" />
+  args="-urdf -model mpl -param robot_description -J ElbowJSwing 0.52" />
 
 </launch>

@@ -25,7 +25,7 @@
 	<origin xyz="0 0.0 0.0" rpy="0 0 0" />
 	<!--<insert_block name="origin" />-->
 	<mass value="0.1" />
-	<inertia  ixx="0.120" ixy="0.0"  ixz="0.0"  iyy="0.148"  iyz="0.0" izz="0.0438" />
+	<inertia  ixx="0.000120" ixy="0.0"  ixz="0.0"  iyy="0.000148"  iyz="0.0" izz="0.0000438" />
       </inertial>
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
@@ -55,6 +55,10 @@
       <limit lower="-0.52359877559829882" upper="0.17453292519943295" effort="1000.0" velocity="10.0"/>
       <dynamics damping="30.0"/>
     </joint>
+    <gazebo reference="WRJ2">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <xacro:shadowhand_wrist_transmission />
 

@@ -15,8 +15,8 @@
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<!--<insert_block name="origin" /> -->
 	<mass value="0.008" />
-	<inertia  ixx="0.00001" ixy="0.0"  ixz="0.0"  iyy="0.00001"  iyz="0.0"
-	izz="0.00001" />
+	<inertia  ixx="1e-6" ixy="0.0"  ixz="0.0"  iyy="1e-6"  iyz="0.0"
+	izz="1e-6" />
       </inertial>
       <visual>
 	<origin xyz="0 0 0.0005" rpy="0 0 0" />
@@ -60,6 +60,10 @@
       effort="1000.0" velocity="10.0"/>
       <dynamics damping="10.0"/>
     </joint>
+    <gazebo reference="${joint_prefix}J4">
+    <provideFeedback>1</provideFeedback>
+    <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <xacro:knuckle_transmission />
 
