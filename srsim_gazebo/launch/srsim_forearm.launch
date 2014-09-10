@@ -22,10 +22,10 @@
 
   <!-- get the appropriate arm -->
   <group if="$(arg right)">
-    <param name="robot_description" command="$(find xacro)/xacro.py $(find sr_description)/robots/arm_and_hand_motor.urdf.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find sr_description)/robots/forearm_and_hand_motor.urdf.xacro" />
   </group>
   <group unless="$(arg right)">
-    <param name="robot_description" command="$(find xacro)/xacro.py $(find sr_description)/robots/arm_and_hand_motor.urdf.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find sr_description)/robots/forearm_and_hand_motor.urdf.xacro" />
   </group>
 
   <!-- start gazebo world -->
@@ -41,6 +41,6 @@
 
   <!-- spawn model -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
-  args="-urdf -model mpl -param robot_description -J mpl::ElbowJSwing 0.52" />
+  args="-urdf -model mpl -param robot_description" />
 
 </launch>
