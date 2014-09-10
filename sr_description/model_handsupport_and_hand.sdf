@@ -1,26 +1,26 @@
 <sdf version='1.5'>
   <model name='arm_and_hand'>
-    <link name='shadowarm_lowerarm'>
-      <pose>0 0 0.369 0 -0 0</pose>
+    <link name='shadowarm_handsupport'>
+      <pose>0.08 0 0.125 0 -0 0</pose>
       <inertial>
-        <pose>0.0685714 0 0.180857 0 -0 0</pose>
-        <mass>3.5</mass>
+        <pose>0.072 -5.72442e-05 0.959943 0 -0 0</pose>
+        <mass>3.75</mass>
         <inertia>
-          <ixx>0.0201804</ixx>
-          <ixy>1.73472e-18</ixy>
-          <ixz>-0.00723429</ixz>
-          <iyy>0.0229233</iyy>
-          <iyz>0</iyz>
-          <izz>0.00384286</izz>
+          <ixx>0.864997</ixx>
+          <ixy>3.86398e-06</ixy>
+          <ixz>-0.0647961</ixz>
+          <iyy>0.869857</iyy>
+          <iyz>5.15167e-05</iyz>
+          <izz>0.00596</izz>
         </inertia>
       </inertial>
-      <collision name='shadowarm_lowerarm_collision'>
-        <pose>0.03 0 0.036 0 -0 0</pose>
+      <collision name='shadowarm_handsupport_collision'>
+        <pose>0 0 -0.005 0 -0 0</pose>
         <geometry>
-          <mesh>
-            <scale>0.001 0.001 0.001</scale>
-            <uri>model://sr_description/arm/model/elbow_flex.dae</uri>
-          </mesh>
+          <cylinder>
+            <length>0.001</length>
+            <radius>0.06</radius>
+          </cylinder>
         </geometry>
         <surface>
           <contact>
@@ -31,8 +31,8 @@
           </friction>
         </surface>
       </collision>
-      <collision name='shadowarm_lowerarm_collision_forearm'>
-        <pose>0.08 0 0.211 0 -0 2.35619</pose>
+      <collision name='shadowarm_handsupport_collision_forearm'>
+        <pose>0.0899999 -7.15552e-05 1.19993 -1.57159 0.00159265 -1.57159</pose>
         <geometry>
           <cylinder>
             <length>0.18</length>
@@ -47,109 +47,6 @@
             <ode/>
           </friction>
         </surface>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-      </collision>
-      <visual name='shadowarm_lowerarm_visual'>
-        <pose>0.03 0 0.036 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.001 0.001 0.001</scale>
-            <uri>model://sr_description/arm/model/elbow_flex.dae</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <script>
-            <name>LightGrey</name>
-            <uri>__default__</uri>
-          </script>
-        </material>
-      </visual>
-      <visual name='shadowarm_lowerarm_visual_forearm'>
-        <pose>0.08 0 0.121 0 -0 2.35619</pose>
-        <geometry>
-          <mesh>
-            <scale>0.001 0.001 0.001</scale>
-            <uri>model://sr_description/hand/model/forearm.dae</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <script>
-            <name>LightGrey</name>
-            <uri>__default__</uri>
-          </script>
-        </material>
-      </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
-      <gravity>1</gravity>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
-      <self_collide>0</self_collide>
-    </link>
-    <joint name='ElbowJSwing' type='revolute'>
-      <child>shadowarm_lowerarm</child>
-      <parent>world</parent>
-      <axis>
-        <xyz>0 -1 0</xyz>
-        <limit>
-          <lower>0.52</lower>
-          <upper>2.0944</upper>
-          <effort>1000</effort>
-          <velocity>10</velocity>
-        </limit>
-        <dynamics>
-          <damping>20</damping>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-      <physics>
-        <provide_feedback>1</provide_feedback>
-        <ode>
-          <provide_feedback>1</provide_feedback>
-          <implicit_spring_damper>1</implicit_spring_damper>
-          <cfm_damping>1</cfm_damping>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-        </ode>
-      </physics>
-    </joint>
-    <link name='shadowarm_handsupport'>
-      <pose>0.08 0 0.494 0 -0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 -0 0</pose>
-        <mass>0.75</mass>
-        <inertia>
-          <ixx>0.0001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.0001</iyy>
-          <iyz>0</iyz>
-          <izz>0.0001</izz>
-        </inertia>
-      </inertial>
-      <collision name='shadowarm_handsupport_collision'>
-        <pose>0 0 -0.005 0 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.001</length>
-            <radius>0.06</radius>
-          </cylinder>
-        </geometry>
         <surface>
           <contact>
             <ode/>
@@ -174,6 +71,25 @@
           </script>
         </material>
       </visual>
+      <visual name='shadowarm_handsupport_visual_forearm'>
+        <pose>0 0 1.2 -1.57159 0.00159265 -1.57159</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://sr_description/hand/model/forearm.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>LightGrey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
       <gravity>1</gravity>
       <velocity_decay>
         <linear>0</linear>
@@ -183,7 +99,7 @@
     </link>
     <joint name='ElbowJRotate' type='revolute'>
       <child>shadowarm_handsupport</child>
-      <parent>shadowarm_lowerarm</parent>
+      <parent>world</parent>
       <axis>
         <xyz>0 0 -1</xyz>
         <limit>
@@ -213,7 +129,7 @@
       </physics>
     </joint>
     <link name='wrist'>
-      <pose>0.0870711 0.00707107 0.703 0 -0 2.35619</pose>
+      <pose>0.293008 -0.00018528 1.33483 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.1</mass>
@@ -266,9 +182,9 @@
     </link>
     <joint name='WRJ2' type='revolute'>
       <child>wrist</child>
-      <parent>shadowarm_lowerarm</parent>
+      <parent>shadowarm_handsupport</parent>
       <axis>
-        <xyz>-0.707107 -0.707107 0</xyz>
+        <xyz>-0.000795058 0.00159329 -0.999998</xyz>
         <limit>
           <lower>-0.523599</lower>
           <upper>0.174533</upper>
@@ -296,7 +212,7 @@
       </physics>
     </joint>
     <link name='palm'>
-      <pose>0.0870711 0.00707107 0.737 0 -0 2.35619</pose>
+      <pose>0.327008 -0.000212312 1.3348 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.035 0 -0 0</pose>
         <mass>0.3</mass>
@@ -364,7 +280,7 @@
       <child>palm</child>
       <parent>wrist</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>-0.7854</lower>
           <upper>0.5236</upper>
@@ -392,7 +308,7 @@
       </physics>
     </joint>
     <link name='ffknuckle'>
-      <pose>0.0637365 0.0304056 0.832 0 -0 2.35619</pose>
+      <pose>0.421981 -0.0332878 1.33468 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
@@ -460,7 +376,7 @@
       <child>ffknuckle</child>
       <parent>palm</parent>
       <axis>
-        <xyz>0.707107 0.707107 0</xyz>
+        <xyz>0.000795058 -0.00159329 0.999998</xyz>
         <limit>
           <lower>-0.3491</lower>
           <upper>0.3491</upper>
@@ -488,7 +404,7 @@
       </physics>
     </joint>
     <link name='ffproximal'>
-      <pose>0.0637365 0.0304056 0.832 0 -0 2.35619</pose>
+      <pose>0.421981 -0.0332878 1.33468 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
@@ -556,7 +472,7 @@
       <child>ffproximal</child>
       <parent>ffknuckle</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -584,7 +500,7 @@
       </physics>
     </joint>
     <link name='ffmiddle'>
-      <pose>0.0637365 0.0304056 0.877 0 -0 2.35619</pose>
+      <pose>0.466981 -0.0333236 1.33464 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
@@ -652,7 +568,7 @@
       <child>ffmiddle</child>
       <parent>ffproximal</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -680,7 +596,7 @@
       </physics>
     </joint>
     <link name='ffdistal'>
-      <pose>0.0637365 0.0304056 0.902 0 -0 2.35619</pose>
+      <pose>0.491981 -0.0333434 1.33462 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
@@ -749,7 +665,7 @@
       <child>ffdistal</child>
       <parent>ffmiddle</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -777,7 +693,7 @@
       </physics>
     </joint>
     <link name='lfmetacarpal'>
-      <pose>0.110406 -0.0162635 0.75771 0 -0 2.35619</pose>
+      <pose>0.347744 0.0327712 1.33484 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.04 0 -0 0</pose>
         <mass>0.075</mass>
@@ -845,7 +761,7 @@
       <child>lfmetacarpal</child>
       <parent>palm</parent>
       <axis>
-        <xyz>-0.40558 0.40558 0.819152</xyz>
+        <xyz>0.818695 -0.574227 -0.00156582</xyz>
         <limit>
           <lower>0</lower>
           <upper>0.785398</upper>
@@ -873,7 +789,7 @@
       </physics>
     </joint>
     <link name='lfknuckle'>
-      <pose>0.110406 -0.0162635 0.8235 0 -0 2.35619</pose>
+      <pose>0.413534 0.0327189 1.33479 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
@@ -941,7 +857,7 @@
       <child>lfknuckle</child>
       <parent>lfmetacarpal</parent>
       <axis>
-        <xyz>-0.707107 -0.707107 0</xyz>
+        <xyz>-0.000795058 0.00159329 -0.999998</xyz>
         <limit>
           <lower>-0.3491</lower>
           <upper>0.3491</upper>
@@ -969,7 +885,7 @@
       </physics>
     </joint>
     <link name='lfproximal'>
-      <pose>0.110406 -0.0162635 0.8235 0 -0 2.35619</pose>
+      <pose>0.413534 0.0327189 1.33479 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
@@ -1037,7 +953,7 @@
       <child>lfproximal</child>
       <parent>lfknuckle</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -1065,7 +981,7 @@
       </physics>
     </joint>
     <link name='lfmiddle'>
-      <pose>0.110406 -0.0162635 0.8685 0 -0 2.35619</pose>
+      <pose>0.458534 0.0326831 1.33475 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
@@ -1133,7 +1049,7 @@
       <child>lfmiddle</child>
       <parent>lfproximal</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -1161,7 +1077,7 @@
       </physics>
     </joint>
     <link name='lfdistal'>
-      <pose>0.110406 -0.0162635 0.8935 0 -0 2.35619</pose>
+      <pose>0.483534 0.0326632 1.33473 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
@@ -1230,7 +1146,7 @@
       <child>lfdistal</child>
       <parent>lfmiddle</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -1258,7 +1174,7 @@
       </physics>
     </joint>
     <link name='mfknuckle'>
-      <pose>0.0792929 0.0148492 0.836 0 -0 2.35619</pose>
+      <pose>0.425999 -0.011291 1.33471 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
@@ -1326,7 +1242,7 @@
       <child>mfknuckle</child>
       <parent>palm</parent>
       <axis>
-        <xyz>0.707107 0.707107 0</xyz>
+        <xyz>0.000795058 -0.00159329 0.999998</xyz>
         <limit>
           <lower>-0.3491</lower>
           <upper>0.3491</upper>
@@ -1354,7 +1270,7 @@
       </physics>
     </joint>
     <link name='mfproximal'>
-      <pose>0.0792929 0.0148492 0.836 0 -0 2.35619</pose>
+      <pose>0.425999 -0.011291 1.33471 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
@@ -1422,7 +1338,7 @@
       <child>mfproximal</child>
       <parent>mfknuckle</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -1450,7 +1366,7 @@
       </physics>
     </joint>
     <link name='mfmiddle'>
-      <pose>0.0792929 0.0148492 0.881 0 -0 2.35619</pose>
+      <pose>0.470999 -0.0113268 1.33467 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
@@ -1518,7 +1434,7 @@
       <child>mfmiddle</child>
       <parent>mfproximal</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -1546,7 +1462,7 @@
       </physics>
     </joint>
     <link name='mfdistal'>
-      <pose>0.0792929 0.0148492 0.906 0 -0 2.35619</pose>
+      <pose>0.495999 -0.0113467 1.33465 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
@@ -1615,7 +1531,7 @@
       <child>mfdistal</child>
       <parent>mfmiddle</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -1643,7 +1559,7 @@
       </physics>
     </joint>
     <link name='rfknuckle'>
-      <pose>0.0948492 -0.000707107 0.832 0 -0 2.35619</pose>
+      <pose>0.422016 0.0107121 1.33475 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
@@ -1711,7 +1627,7 @@
       <child>rfknuckle</child>
       <parent>palm</parent>
       <axis>
-        <xyz>-0.707107 -0.707107 0</xyz>
+        <xyz>-0.000795058 0.00159329 -0.999998</xyz>
         <limit>
           <lower>-0.3491</lower>
           <upper>0.3491</upper>
@@ -1739,7 +1655,7 @@
       </physics>
     </joint>
     <link name='rfproximal'>
-      <pose>0.0948492 -0.000707107 0.832 0 -0 2.35619</pose>
+      <pose>0.422016 0.0107121 1.33475 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
@@ -1807,7 +1723,7 @@
       <child>rfproximal</child>
       <parent>rfknuckle</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -1835,7 +1751,7 @@
       </physics>
     </joint>
     <link name='rfmiddle'>
-      <pose>0.0948492 -0.000707107 0.877 0 -0 2.35619</pose>
+      <pose>0.467016 0.0106764 1.33471 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
@@ -1903,7 +1819,7 @@
       <child>rfmiddle</child>
       <parent>rfproximal</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -1931,7 +1847,7 @@
       </physics>
     </joint>
     <link name='rfdistal'>
-      <pose>0.0948492 -0.000707107 0.902 0 -0 2.35619</pose>
+      <pose>0.492016 0.0106565 1.33469 -1.57159 0.00159265 -1.57159</pose>
       <inertial>
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
@@ -2000,7 +1916,7 @@
       <child>rfdistal</child>
       <parent>rfmiddle</parent>
       <axis>
-        <xyz>-0.707107 0.707107 0</xyz>
+        <xyz>-0.000796326 -0.999998 -0.00159265</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.5708</upper>
@@ -2028,7 +1944,7 @@
       </physics>
     </joint>
     <link name='thbase'>
-      <pose>0.0690398 0.0371231 0.766 7.85046e-17 0.785398 2.35619</pose>
+      <pose>0.355987 -0.0342489 1.34323 -1.57249 0.000563088 -2.35699</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.01</mass>
@@ -2095,7 +2011,7 @@
       <child>thbase</child>
       <parent>palm</parent>
       <axis>
-        <xyz>0.5 -0.5 -0.707107</xyz>
+        <xyz>-0.706543 0.707668 0.00168926</xyz>
         <limit>
           <lower>-1.047</lower>
           <upper>1.047</upper>
@@ -2123,7 +2039,7 @@
       </physics>
     </joint>
     <link name='thproximal'>
-      <pose>0.0690398 0.0371231 0.766 7.85046e-17 0.785398 2.35619</pose>
+      <pose>0.355987 -0.0342489 1.34323 -1.57249 0.000563088 -2.35699</pose>
       <inertial>
         <pose>0 0 0.019 0 -0 0</pose>
         <mass>0.016</mass>
@@ -2191,7 +2107,7 @@
       <child>thproximal</child>
       <parent>thbase</parent>
       <axis>
-        <xyz>-0.5 0.5 -0.707107</xyz>
+        <xyz>-0.707669 -0.706543 -0.000563088</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.309</upper>
@@ -2219,7 +2135,7 @@
       </physics>
     </joint>
     <link name='thhub'>
-      <pose>0.0500398 0.0561231 0.79287 7.85046e-17 0.785398 2.35619</pose>
+      <pose>0.382836 -0.0611402 1.34316 -1.57249 0.000563088 -2.35699</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.002</mass>
@@ -2286,7 +2202,7 @@
       <child>thhub</child>
       <parent>thproximal</parent>
       <axis>
-        <xyz>-0.5 0.5 -0.707107</xyz>
+        <xyz>-0.707669 -0.706543 -0.000563088</xyz>
         <limit>
           <lower>-0.2618</lower>
           <upper>0.2618</upper>
@@ -2314,7 +2230,7 @@
       </physics>
     </joint>
     <link name='thmiddle'>
-      <pose>0.0500398 0.0561231 0.79287 7.85046e-17 0.785398 2.35619</pose>
+      <pose>0.382836 -0.0611402 1.34316 -1.57249 0.000563088 -2.35699</pose>
       <inertial>
         <pose>0 0 0.016 0 -0 0</pose>
         <mass>0.016</mass>
@@ -2382,7 +2298,7 @@
       <child>thmiddle</child>
       <parent>thhub</parent>
       <axis>
-        <xyz>0.707107 0.707107 0</xyz>
+        <xyz>0.000795058 -0.00159329 0.999998</xyz>
         <limit>
           <lower>-0.6981</lower>
           <upper>0.6981</upper>
@@ -2410,7 +2326,7 @@
       </physics>
     </joint>
     <link name='thdistal'>
-      <pose>0.0340398 0.0721231 0.815497 -0.785398 -1.4503e-10 0.785398</pose>
+      <pose>0.405445 -0.0837856 1.34311 -2.81984 -1.56902 -1.10794</pose>
       <inertial>
         <pose>0 0 0.0145588 0 -0 0</pose>
         <mass>0.017</mass>
@@ -2479,7 +2395,7 @@
       <child>thdistal</child>
       <parent>thmiddle</parent>
       <axis>
-        <xyz>0.707107 0.707107 1.4503e-10</xyz>
+        <xyz>0.000795058 -0.00159329 0.999998</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.571</upper>
