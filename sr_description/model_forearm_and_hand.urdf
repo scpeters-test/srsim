@@ -1440,6 +1440,17 @@
     <provideFeedback>1</provideFeedback>
     <implicitSpringDamper>1</implicitSpringDamper>
   </gazebo>
+  <!-- test soft collision -->
+  <gazebo reference="palm">
+    <soft_contact>
+      <dart>
+        <flesh_mass_fraction>0.5</flesh_mass_fraction>
+        <bone_attachment>500.0</bone_attachment>
+        <stiffness>0.0</stiffness>
+        <damping>5.0</damping>
+      </dart>
+    </soft_contact>
+  </gazebo>
   <transmission name="thmiddle_transmission" type="sr_mechanism_model/SimpleTransmission">
     <actuator name="THJ2"/>
     <joint name="THJ2"/>
