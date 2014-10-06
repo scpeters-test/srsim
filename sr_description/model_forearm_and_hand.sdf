@@ -87,15 +87,15 @@
     <link name='shadowarm_handsupport'>
       <pose>0.08 0 0.494 0 -0 0</pose>
       <inertial>
-        <pose>0.064 0 0.1688 0 -0 0</pose>
+        <pose>0 0 0.072 0 -0 0</pose>
         <mass>3.75</mass>
         <inertia>
-          <ixx>0.0278126</ixx>
+          <ixx>0.00596</ixx>
           <ixy>1.73472e-18</ixy>
-          <ixz>-0.010128</ixz>
-          <iyy>0.0316526</iyy>
+          <ixz>0</ixz>
+          <iyy>0.00596</iyy>
           <iyz>0</iyz>
-          <izz>0.00494</izz>
+          <izz>0.0011</izz>
         </inertia>
       </inertial>
       <collision name='shadowarm_handsupport_collision'>
@@ -116,7 +116,7 @@
         </surface>
       </collision>
       <collision name='shadowarm_handsupport_collision_forearm'>
-        <pose>0.08 0 0.211 0 -0 2.35619</pose>
+        <pose>0 0 0.09 0 -0 2.35619</pose>
         <geometry>
           <cylinder>
             <length>0.18</length>
@@ -156,7 +156,7 @@
         </material>
       </visual>
       <visual name='shadowarm_handsupport_visual_forearm'>
-        <pose>0.08 0 0.121 0 -0 2.35619</pose>
+        <pose>0 0 0 0 -0 2.35619</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
@@ -213,7 +213,7 @@
       </physics>
     </joint>
     <link name='wrist'>
-      <pose>0.167071 0.00707107 0.828 0 -0 2.35619</pose>
+      <pose>0.0870711 0.00707107 0.707 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.1</mass>
@@ -296,7 +296,7 @@
       </physics>
     </joint>
     <link name='palm'>
-      <pose>0.167071 0.00707107 0.862 0 -0 2.35619</pose>
+      <pose>0.0870711 0.00707107 0.741 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.035 0 -0 0</pose>
         <mass>0.3</mass>
@@ -392,7 +392,7 @@
       </physics>
     </joint>
     <link name='ffknuckle'>
-      <pose>0.143737 0.0304056 0.957 0 -0 2.35619</pose>
+      <pose>0.0637365 0.0304056 0.836 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
@@ -488,7 +488,7 @@
       </physics>
     </joint>
     <link name='ffproximal'>
-      <pose>0.143737 0.0304056 0.957 0 -0 2.35619</pose>
+      <pose>0.0637365 0.0304056 0.836 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
@@ -584,7 +584,7 @@
       </physics>
     </joint>
     <link name='ffmiddle'>
-      <pose>0.143737 0.0304056 1.002 0 -0 2.35619</pose>
+      <pose>0.0637365 0.0304056 0.881 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
@@ -680,7 +680,7 @@
       </physics>
     </joint>
     <link name='ffdistal'>
-      <pose>0.143737 0.0304056 1.027 0 -0 2.35619</pose>
+      <pose>0.0637365 0.0304056 0.906 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
@@ -777,7 +777,7 @@
       </physics>
     </joint>
     <link name='lfmetacarpal'>
-      <pose>0.190406 -0.0162635 0.88271 0 -0 2.35619</pose>
+      <pose>0.110406 -0.0162635 0.76171 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.04 0 -0 0</pose>
         <mass>0.075</mass>
@@ -873,7 +873,7 @@
       </physics>
     </joint>
     <link name='lfknuckle'>
-      <pose>0.190406 -0.0162635 0.9485 0 -0 2.35619</pose>
+      <pose>0.110406 -0.0162635 0.8275 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
@@ -969,7 +969,7 @@
       </physics>
     </joint>
     <link name='lfproximal'>
-      <pose>0.190406 -0.0162635 0.9485 0 -0 2.35619</pose>
+      <pose>0.110406 -0.0162635 0.8275 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
@@ -1065,7 +1065,7 @@
       </physics>
     </joint>
     <link name='lfmiddle'>
-      <pose>0.190406 -0.0162635 0.9935 0 -0 2.35619</pose>
+      <pose>0.110406 -0.0162635 0.8725 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
@@ -1161,7 +1161,7 @@
       </physics>
     </joint>
     <link name='lfdistal'>
-      <pose>0.190406 -0.0162635 1.0185 0 -0 2.35619</pose>
+      <pose>0.110406 -0.0162635 0.8975 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
@@ -1258,7 +1258,7 @@
       </physics>
     </joint>
     <link name='mfknuckle'>
-      <pose>0.159293 0.0148492 0.961 0 -0 2.35619</pose>
+      <pose>0.0792929 0.0148492 0.84 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
@@ -1354,7 +1354,7 @@
       </physics>
     </joint>
     <link name='mfproximal'>
-      <pose>0.159293 0.0148492 0.961 0 -0 2.35619</pose>
+      <pose>0.0792929 0.0148492 0.84 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
@@ -1450,7 +1450,7 @@
       </physics>
     </joint>
     <link name='mfmiddle'>
-      <pose>0.159293 0.0148492 1.006 0 -0 2.35619</pose>
+      <pose>0.0792929 0.0148492 0.885 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
@@ -1546,7 +1546,7 @@
       </physics>
     </joint>
     <link name='mfdistal'>
-      <pose>0.159293 0.0148492 1.031 0 -0 2.35619</pose>
+      <pose>0.0792929 0.0148492 0.91 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
@@ -1643,7 +1643,7 @@
       </physics>
     </joint>
     <link name='rfknuckle'>
-      <pose>0.174849 -0.000707107 0.957 0 -0 2.35619</pose>
+      <pose>0.0948492 -0.000707107 0.836 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
@@ -1739,7 +1739,7 @@
       </physics>
     </joint>
     <link name='rfproximal'>
-      <pose>0.174849 -0.000707107 0.957 0 -0 2.35619</pose>
+      <pose>0.0948492 -0.000707107 0.836 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
@@ -1835,7 +1835,7 @@
       </physics>
     </joint>
     <link name='rfmiddle'>
-      <pose>0.174849 -0.000707107 1.002 0 -0 2.35619</pose>
+      <pose>0.0948492 -0.000707107 0.881 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
@@ -1931,7 +1931,7 @@
       </physics>
     </joint>
     <link name='rfdistal'>
-      <pose>0.174849 -0.000707107 1.027 0 -0 2.35619</pose>
+      <pose>0.0948492 -0.000707107 0.906 0 -0 2.35619</pose>
       <inertial>
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
@@ -2028,7 +2028,7 @@
       </physics>
     </joint>
     <link name='thbase'>
-      <pose>0.14904 0.0371231 0.891 7.85046e-17 0.785398 2.35619</pose>
+      <pose>0.0690398 0.0371231 0.77 7.85046e-17 0.785398 2.35619</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.01</mass>
@@ -2123,7 +2123,7 @@
       </physics>
     </joint>
     <link name='thproximal'>
-      <pose>0.14904 0.0371231 0.891 7.85046e-17 0.785398 2.35619</pose>
+      <pose>0.0690398 0.0371231 0.77 7.85046e-17 0.785398 2.35619</pose>
       <inertial>
         <pose>0 0 0.019 0 -0 0</pose>
         <mass>0.016</mass>
@@ -2219,7 +2219,7 @@
       </physics>
     </joint>
     <link name='thhub'>
-      <pose>0.13004 0.0561231 0.91787 7.85046e-17 0.785398 2.35619</pose>
+      <pose>0.0500398 0.0561231 0.79687 7.85046e-17 0.785398 2.35619</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.002</mass>
@@ -2314,7 +2314,7 @@
       </physics>
     </joint>
     <link name='thmiddle'>
-      <pose>0.13004 0.0561231 0.91787 7.85046e-17 0.785398 2.35619</pose>
+      <pose>0.0500398 0.0561231 0.79687 7.85046e-17 0.785398 2.35619</pose>
       <inertial>
         <pose>0 0 0.016 0 -0 0</pose>
         <mass>0.016</mass>
@@ -2410,7 +2410,7 @@
       </physics>
     </joint>
     <link name='thdistal'>
-      <pose>0.11404 0.0721231 0.940497 -0.785398 -1.4503e-10 0.785398</pose>
+      <pose>0.0340398 0.0721231 0.819497 -0.785398 -1.4503e-10 0.785398</pose>
       <inertial>
         <pose>0 0 0.0145588 0 -0 0</pose>
         <mass>0.017</mass>
