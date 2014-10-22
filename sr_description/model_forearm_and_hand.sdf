@@ -301,12 +301,12 @@
         <pose>0 0 0.035 0 -0 0</pose>
         <mass>0.3</mass>
         <inertia>
-          <ixx>0.0005</ixx>
+          <ixx>0.0001</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0005</iyy>
+          <iyy>0.0002</iyy>
           <iyz>0</iyz>
-          <izz>0.0003</izz>
+          <izz>0.0001</izz>
         </inertia>
       </inertial>
       <collision name='palm_collision'>
@@ -323,17 +323,6 @@
           <friction>
             <ode/>
           </friction>
-
-          <!-- test soft collision -->
-          <soft_contact>
-            <dart>
-              <flesh_mass_fraction>0.5</flesh_mass_fraction>
-              <bone_attachment>500.0</bone_attachment>
-              <stiffness>0.0</stiffness>
-              <damping>5.0</damping>
-            </dart>
-          </soft_contact>
-
         </surface>
       </collision>
       <visual name='palm_visual'>
@@ -351,12 +340,10 @@
           </script>
         </material>
       </visual>
-      <gravity>1</gravity>
       <velocity_decay>
         <linear>0</linear>
         <angular>0</angular>
       </velocity_decay>
-      <self_collide>0</self_collide>
       <sensor name='palm_contact' type='contact'>
         <always_on>1</always_on>
         <update_rate>1000</update_rate>
@@ -370,6 +357,12 @@
           <bumperTopicName>contacts/palm</bumperTopicName>
         </plugin>
       </sensor>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
     </link>
     <joint name='WRJ1' type='revolute'>
       <child>palm</child>
@@ -408,12 +401,12 @@
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
         <inertia>
-          <ixx>1e-06</ixx>
+          <ixx>2e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-06</iyy>
+          <iyy>2e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-06</izz>
+          <izz>2e-07</izz>
         </inertia>
       </inertial>
       <collision name='ffknuckle_collision'>
@@ -504,12 +497,12 @@
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
         <inertia>
-          <ixx>1e-05</ixx>
+          <ixx>1e-06</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-05</iyy>
+          <iyy>1e-06</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>5e-07</izz>
         </inertia>
       </inertial>
       <collision name='ffproximal_collision'>
@@ -600,12 +593,12 @@
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
         <inertia>
-          <ixx>0.0001</ixx>
+          <ixx>8e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0001</iyy>
+          <iyy>8e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>3e-07</izz>
         </inertia>
       </inertial>
       <collision name='ffmiddle_collision'>
@@ -696,12 +689,12 @@
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
         <inertia>
-          <ixx>1.02536e-05</ixx>
+          <ixx>3.53636e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.02536e-05</iyy>
+          <iyy>3.53636e-07</iyy>
           <iyz>0</iyz>
-          <izz>1.01e-05</izz>
+          <izz>2e-07</izz>
         </inertia>
       </inertial>
       <collision name='ffdistal_collision'>
@@ -793,12 +786,12 @@
         <pose>0 0 0.04 0 -0 0</pose>
         <mass>0.075</mass>
         <inertia>
-          <ixx>1e-06</ixx>
+          <ixx>5e-06</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-06</iyy>
+          <iyy>5e-06</iyy>
           <iyz>0</iyz>
-          <izz>1e-06</izz>
+          <izz>3e-06</izz>
         </inertia>
       </inertial>
       <collision name='lfmetacarpal_collision'>
@@ -889,12 +882,12 @@
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
         <inertia>
-          <ixx>1e-06</ixx>
+          <ixx>2e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-06</iyy>
+          <iyy>2e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-06</izz>
+          <izz>2e-07</izz>
         </inertia>
       </inertial>
       <collision name='lfknuckle_collision'>
@@ -985,12 +978,12 @@
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
         <inertia>
-          <ixx>1e-05</ixx>
+          <ixx>1e-06</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-05</iyy>
+          <iyy>1e-06</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>5e-07</izz>
         </inertia>
       </inertial>
       <collision name='lfproximal_collision'>
@@ -1081,12 +1074,12 @@
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
         <inertia>
-          <ixx>0.0001</ixx>
+          <ixx>8e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0001</iyy>
+          <iyy>8e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>3e-07</izz>
         </inertia>
       </inertial>
       <collision name='lfmiddle_collision'>
@@ -1177,12 +1170,12 @@
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
         <inertia>
-          <ixx>1.02536e-05</ixx>
+          <ixx>3.53636e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.02536e-05</iyy>
+          <iyy>3.53636e-07</iyy>
           <iyz>0</iyz>
-          <izz>1.01e-05</izz>
+          <izz>2e-07</izz>
         </inertia>
       </inertial>
       <collision name='lfdistal_collision'>
@@ -1274,12 +1267,12 @@
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
         <inertia>
-          <ixx>1e-06</ixx>
+          <ixx>2e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-06</iyy>
+          <iyy>2e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-06</izz>
+          <izz>2e-07</izz>
         </inertia>
       </inertial>
       <collision name='mfknuckle_collision'>
@@ -1370,12 +1363,12 @@
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
         <inertia>
-          <ixx>1e-05</ixx>
+          <ixx>1e-06</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-05</iyy>
+          <iyy>1e-06</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>5e-07</izz>
         </inertia>
       </inertial>
       <collision name='mfproximal_collision'>
@@ -1466,12 +1459,12 @@
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
         <inertia>
-          <ixx>0.0001</ixx>
+          <ixx>8e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0001</iyy>
+          <iyy>8e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>3e-07</izz>
         </inertia>
       </inertial>
       <collision name='mfmiddle_collision'>
@@ -1562,12 +1555,12 @@
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
         <inertia>
-          <ixx>1.02536e-05</ixx>
+          <ixx>3.53636e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.02536e-05</iyy>
+          <iyy>3.53636e-07</iyy>
           <iyz>0</iyz>
-          <izz>1.01e-05</izz>
+          <izz>2e-07</izz>
         </inertia>
       </inertial>
       <collision name='mfdistal_collision'>
@@ -1659,12 +1652,12 @@
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.008</mass>
         <inertia>
-          <ixx>1e-06</ixx>
+          <ixx>2e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-06</iyy>
+          <iyy>2e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-06</izz>
+          <izz>2e-07</izz>
         </inertia>
       </inertial>
       <collision name='rfknuckle_collision'>
@@ -1755,12 +1748,12 @@
         <pose>0 0 0.0225 0 -0 0</pose>
         <mass>0.014</mass>
         <inertia>
-          <ixx>1e-05</ixx>
+          <ixx>1e-06</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-05</iyy>
+          <iyy>1e-06</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>5e-07</izz>
         </inertia>
       </inertial>
       <collision name='rfproximal_collision'>
@@ -1851,12 +1844,12 @@
         <pose>0 0 0.0125 0 -0 0</pose>
         <mass>0.012</mass>
         <inertia>
-          <ixx>0.0001</ixx>
+          <ixx>8e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0001</iyy>
+          <iyy>8e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>3e-07</izz>
         </inertia>
       </inertial>
       <collision name='rfmiddle_collision'>
@@ -1947,12 +1940,12 @@
         <pose>0 0 0.0141818 0 -0 0</pose>
         <mass>0.011</mass>
         <inertia>
-          <ixx>1.02536e-05</ixx>
+          <ixx>3.53636e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.02536e-05</iyy>
+          <iyy>3.53636e-07</iyy>
           <iyz>0</iyz>
-          <izz>1.01e-05</izz>
+          <izz>2e-07</izz>
         </inertia>
       </inertial>
       <collision name='rfdistal_collision'>
@@ -2044,12 +2037,12 @@
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.01</mass>
         <inertia>
-          <ixx>1e-05</ixx>
+          <ixx>1e-06</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-05</iyy>
+          <iyy>1e-06</iyy>
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>1e-06</izz>
         </inertia>
       </inertial>
       <collision name='thbase_collision'>
@@ -2235,12 +2228,12 @@
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.002</mass>
         <inertia>
-          <ixx>1e-06</ixx>
+          <ixx>1e-07</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-06</iyy>
+          <iyy>1e-07</iyy>
           <iyz>0</iyz>
-          <izz>1e-06</izz>
+          <izz>1e-07</izz>
         </inertia>
       </inertial>
       <collision name='thhub_collision'>
@@ -2426,12 +2419,12 @@
         <pose>0 0 0.0145588 0 -0 0</pose>
         <mass>0.017</mass>
         <inertia>
-          <ixx>1.11779e-05</ixx>
+          <ixx>1.17794e-06</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.11779e-05</iyy>
+          <iyy>1.17794e-06</iyy>
           <iyz>0</iyz>
-          <izz>1.1e-05</izz>
+          <izz>1e-06</izz>
         </inertia>
       </inertial>
       <collision name='thdistal_collision'>
