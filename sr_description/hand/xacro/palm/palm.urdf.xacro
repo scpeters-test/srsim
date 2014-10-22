@@ -78,6 +78,7 @@
 
     <!-- test soft collision -->
     <gazebo reference="palm">
+      <!--
       <soft_contact>
         <dart>
           <flesh_mass_fraction>0.5</flesh_mass_fraction>
@@ -86,6 +87,7 @@
           <damping>5.0</damping>
         </dart>
       </soft_contact>
+      -->
     </gazebo>
 
     <xacro:shadowhand_palm_transmission />
