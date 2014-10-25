@@ -4,14 +4,14 @@
       <pose>0 0 0.369 0 -0 0</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
-        <mass>3.5</mass>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>0.0201804</ixx>
-          <ixy>1.73472e-18</ixy>
-          <ixz>-0.00723429</ixz>
-          <iyy>0.0229233</iyy>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001</iyy>
           <iyz>0</iyz>
-          <izz>0.00384286</izz>
+          <izz>0.0001</izz>
         </inertia>
       </inertial>
       <collision name='shadowarm_lowerarm_collision'>
@@ -87,15 +87,15 @@
     <link name='shadowarm_handsupport'>
       <pose>0.08 0 0.494 0 -0 0</pose>
       <inertial>
-        <pose>0 0 0.04 0 -0 0</pose>
-        <mass>0.75</mass>
+        <pose>0 0 0.072 0 -0 0</pose>
+        <mass>3.75</mass>
         <inertia>
-          <ixx>0.0001</ixx>
-          <ixy>0</ixy>
+          <ixx>0.00596</ixx>
+          <ixy>1.73472e-18</ixy>
           <ixz>0</ixz>
-          <iyy>0.0001</iyy>
+          <iyy>0.00596</iyy>
           <iyz>0</iyz>
-          <izz>0.0001</izz>
+          <izz>0.0011</izz>
         </inertia>
       </inertial>
       <collision name='shadowarm_handsupport_collision'>
