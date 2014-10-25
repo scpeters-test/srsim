@@ -124,7 +124,7 @@
   </transmission>
   <!-- connects forearm to lowerarm -->
   <joint name="arm_link" type="fixed">
-    <parent link="shadowarm_lowerarm"/>
+    <parent link="shadowarm_handsupport"/>
     <child link="forearm"/>
     <origin rpy="0 0 2.35619449" xyz="0.08 0 0.121"/>
   </joint>
