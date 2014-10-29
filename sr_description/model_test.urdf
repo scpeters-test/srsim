@@ -28,7 +28,7 @@
   <link name="world"/>
   <joint name="arm_base_joint" type="revolute">
     <parent link="world"/>
-    <child link="shadowarm_handsupport"/>
+    <child link="forearm"/>
     <origin rpy="0 0 0" xyz="0 0 0.369"/>
     <axis xyz="0 -1 0"/>
     <limit effort="1000.0" lower="0.52" upper="2.09439510239" velocity="10.0"/>
@@ -38,36 +38,6 @@
     <provideFeedback>1</provideFeedback>
     <implicitSpringDamper>1</implicitSpringDamper>
   </gazebo>
-  <link name="shadowarm_handsupport">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.75"/>
-      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 -0.04"/>
-      <geometry name="shadowarm_handsupport_visual">
-        <mesh filename="package://sr_description/arm/model/elbow_rotate_motor.dae" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="LightGrey"/>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.005"/>
-      <geometry name="shadowarm_handsupport_collision">
-        <cylinder length="0.001" radius="0.06"/>
-      </geometry>
-    </collision>
-  </link>
-  <gazebo reference="shadowarm_handsupport">
-    <material>Gazebo/Grey</material>
-    <selfCollide>false</selfCollide>
-  </gazebo>
-  <!-- connects forearm to lowerarm -->
-  <joint name="arm_link" type="fixed">
-    <parent link="shadowarm_lowerarm"/>
-    <child link="forearm"/>
-    <origin rpy="0 0 2.35619449" xyz="0.08 0 0.121"/>
-  </joint>
   <link name="forearm">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.09"/>
@@ -1472,7 +1442,9 @@
   <gazebo>
     <plugin filename="libHaptixControlPlugin.so" name="HaptixControlPlugin">
       <base_joint>arm_base_joint</base_joint>
-      <base_link>shadowarm_handsupport</base_link>
+      <base_link>forearm</base_link>
+      <base_pid_pos cmd_max="1000.0" cmd_min="-1000.0" d="0" i="0" p="10000.0"/>
+      <base_pid_rot cmd_max="1000.0" cmd_min="-1000.0" d="0" i="0" p="100.0"/>
       <!-- order must match hxAPLJoints enumeration -->
       <joint id=" 0">WRJ2</joint>
       <joint id=" 1">WRJ1</joint>
@@ -1498,30 +1470,30 @@
       <joint id="21">THJ3</joint>
       <joint id="22">THJ2</joint>
       <joint id="23">THJ1</joint>
-      <pid cmd_max="1000.0" cmd_min="-1000.0" d="0" i="0" id="0" p="1000.0"/>
-      <pid cmd_max="1000.0" cmd_min="-1000.0" d="0" i="0" id="1" p="1000.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="2" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="3" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="4" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="5" p=" 100.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="6" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="7" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="8" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="9" p=" 100.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="10" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="11" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="12" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="13" p=" 100.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="14" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="15" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="16" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="17" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="18" p=" 100.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="19" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="20" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="21" p="  10.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="22" p="  50.0"/>
-      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="23" p=" 100.0"/>
+      <pid cmd_max="1000.0" cmd_min="-1000.0" d="0" i="0" id="0"  p="0.0"/>
+      <pid cmd_max="1000.0" cmd_min="-1000.0" d="0" i="0" id="1"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="2"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="3"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="4"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="5"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="6"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="7"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="8"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="9"  p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="10" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="11" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="12" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="13" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="14" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="15" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="16" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="17" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="18" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="19" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="20" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="21" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="22" p="0.0"/>
+      <pid cmd_max=" 100.0" cmd_min=" -100.0" d="0" i="0" id="23" p="0.0"/>
 <!--
       <motor id="0" name="motor_right_wrist_rot">
         <powered_motor_joint>right_wrist_rot</powered_motor_joint>

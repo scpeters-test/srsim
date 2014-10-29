@@ -144,6 +144,7 @@ include_directories(
 install(FILES
   materials.urdf.xacro
   model.config
+  model_test.urdf
   model_forearm_and_hand.urdf
   model_handsupport_and_hand.urdf
   # DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
